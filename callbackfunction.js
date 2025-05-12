@@ -14,5 +14,8 @@ function somethingElse(a, b, fn){
 
 }
 
-somethingElse(a, b , square);
-somethingElse(a, b, cube);
+const ans = somethingElse(2, 2 , square);
+console.log(ans);
+
+const ans2 = somethingElse(2, 2, cube);
+console.log(ans2);
