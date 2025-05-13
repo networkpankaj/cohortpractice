@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FAQ Accordion</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+      padding: 40px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .faq-container {
+      width: 100%;
+      max-width: 600px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #ddd;
+    }
+
+    .faq-question {
+      padding: 20px;
+      cursor: pointer;
+      background: #fff;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .faq-question:hover {
+      background: #f0f0f0;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      padding: 0 20px;
+      background: #fafafa;
+    }
+
+    .faq-answer p {
+      padding: 15px 0;
+      margin: 0;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 200px; /* Adjust if answer content is longer */
+    }
+  </style>
+</head>
+<body>
+
+  <div class="faq-container">
+    <div class="faq-item">
+      <div class="faq-question">1. What is JavaScript?</div>
+      <div class="faq-answer">
+        <p>JavaScript is a scripting language used to create dynamic web content like interactive forms, animations, and more.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">2. What is HTML?</div>
+      <div class="faq-answer">
+        <p>HTML stands for HyperText Markup Language. It structures web content using elements and tags.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">3. What is CSS?</div>
+      <div class="faq-answer">
+        <p>CSS stands for Cascading Style Sheets. It controls the layout and appearance of web elements.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">4. What is the DOM?</div>
+      <div class="faq-answer">
+        <p>The DOM (Document Object Model) is an interface that allows scripts to dynamically access and update content, structure, and style of a document.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">5. What is an API?</div>
+      <div class="faq-answer">
+        <p>An API (Application Programming Interface) allows different software systems to communicate with each other.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+      const question = item.querySelector('.faq-question');
+      question.addEventListener('click', () => {
+        // Close all other items
+        faqItems.forEach(i => {
+          if (i !== item) i.classList.remove('active');
+        });
+        // Toggle current
+        item.classList.toggle('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
